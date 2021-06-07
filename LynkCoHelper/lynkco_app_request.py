@@ -43,3 +43,16 @@ class lynkco_app_request():
         params = { 'mobile': mobile, 'password': password, 'passwordConfirm': password, 'verificationCode': vcode }
         response = requests.post(self.__host + '/auth/register/registerByMobile', params = params, data = {}, auth = self.__lynco_api_auth, proxies = {});
         return response.json()
+
+    
+    def article_like(self, token, tid, is_like):
+        """圈子帖子点赞接口"""
+        params = { 'isForward': is_like }
+        response = requests.put('https://community-opt-app.lynkco.com/api/v1/biz/article/like/' + tid, params = params, data = { 'isForward': false }, proxies = {});
+        return response.json()
+
+    def get_user_dynamic_list(self, uid, page, size):
+        """获取用户动态列表"""
+        params = { 'dynamicsPageNo': page, 'dynamicsPageSize': size, 'userId': uid }
+        response = requests.get(self.__host + '/app/explore/home-page/query/user/dynamics', params = params, data = {}, auth = self.__lynco_api_auth, proxies = {});
+        return response.json()

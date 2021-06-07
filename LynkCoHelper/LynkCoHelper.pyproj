@@ -11,6 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>LynkCoHelper</Name>
     <RootNamespace>LynkCoHelper</RootNamespace>
+    <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
